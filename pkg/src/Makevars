@@ -1,0 +1,9 @@
+
+GSL_CFLAGS = -I/usr/local/include
+GSL_LIBS   = -L/usr/local/lib -lgsl -lgslcblas -lm
+RCPP_LDFLAGS = -L/home/conor/R/x86_64-pc-linux-gnu-library/2.14/Rcpp/lib -lRcpp -Wl,-rpath,/home/conor/R/x86_64-pc-linux-gnu-library/2.14/Rcpp/lib
+
+# combine with standard arguments for R
+PKG_CPPFLAGS = -W $(GSL_CFLAGS) -I../inst/include -I/usr/include
+PKG_LIBS += $(GSL_LIBS) $(RCPP_LDFLAGS)
+

@@ -1,0 +1,11 @@
+Package: senesceR
+Type: Package
+Title: Simulation of an in vitro population of cells undergoing stochastic transition from replication to senescence.
+Version: 1.0
+Date: 2012-06-03
+Author: Conor Lawless
+Maintainer: Conor Lawless <conor.lawless@ncl.ac.uk>
+Description: Simulates inoculating a small population of cells into a flask of limited capacity.  Cells divide stochastically until flask becomes confluent, whereupon a sample of cells is transferred to a fresh flask and division can continue.  Cells can divide according to the commitment theory of cellular senescence (Kirkwood and Holliday) or just have fixed (or distributed) division potentials.
+License: Artistic-2.0
+Depends: Rcpp (>= 0.9.10)
+LinkingTo: Rcpp
