@@ -2,6 +2,7 @@
 #include <iostream>
 #include <fstream>
 #include <math.h>
+#include <time.h>
 
 #define round(x) (x<0?ceil((x)-0.5):floor((x)+0.5))
 
