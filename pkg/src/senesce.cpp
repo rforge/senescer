@@ -54,7 +54,7 @@ Senesce::Senesce(int Capacity,float Prat,float Divrate,float Deltarep,float Pc,f
 	for (int i=0; i<nreps; i++){
 		for (int j=0; j<histbins; j++) hist[i][j]=0;	
 	}
-	std::cout << starting << std::endl;
+	//std::cout << starting << std::endl;
 }
 
 Senesce::~Senesce(){
@@ -127,7 +127,7 @@ void Senesce::inoculate(int Starting){
 		flask[i][1]=meandiv;
 		flask[i][2]=0;
 	}
-	std::cout << starting << std::endl;
+	//std::cout << starting << std::endl;
 }
 
 void Senesce::growingCulture(){
@@ -221,22 +221,22 @@ void Senesce::passagingCells(){
 
 void Senesce::simulate(){
 
-	std::cout << "Inoculated population." << std::endl;
-	for(int i=0;i<10;i++){
-		std::cout << flask[i][0] << "\t" << flask[i][1] << "\t" << flask[i][2] << std::endl;
-	}
+	//std::cout << "Inoculated population." << std::endl;
+	//for(int i=0;i<10;i++){
+	//	std::cout << flask[i][0] << "\t" << flask[i][1] << "\t" << flask[i][2] << std::endl;
+	//}
 	// Keep growing cells and passaging until population is exhausted
 	while(dividing>0){
 		int pstart=time(0);
 		growingCulture();
 		int ptime=time(0)-pstart;
-		std::cout << "Confluent population." << std::endl;
-		for(int i=0;i<10;i++){
-			std::cout << flask[i][0] << "\t" << flask[i][1] << "\t" << flask[i][2] << std::endl;
-		}
+		//std::cout << "Confluent population." << std::endl;
+		//for(int i=0;i<10;i++){
+		//	std::cout << flask[i][0] << "\t" << flask[i][1] << "\t" << flask[i][2] << std::endl;
+		//}
 		passagingCells();
 		if (dividing==0) report();
-		std::cout << "Simulation time: " << ptime << std::endl;
+		//std::cout << "Simulation time: " << ptime << std::endl;
 	}
 
 }
