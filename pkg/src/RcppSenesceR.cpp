@@ -54,7 +54,7 @@ RcppExport SEXP simsendist(SEXP Capacity,SEXP Prat,SEXP Divrate,SEXP Deltarep,SE
 	cells.num0=popsize;
 	
 	cells.simulate();
-	cells.writeTable(froot);
+	cells.writeTable(fRoot);
 	
 	return R_NilValue; 
 }
