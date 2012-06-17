@@ -1,5 +1,7 @@
 #include <gsl/gsl_rng.h>
 #include <gsl/gsl_randist.h>
+#include <string>
+using namespace std;
 
 class Senesce{
 
@@ -39,5 +41,5 @@ public:
 	void growingCulture();
 	void passagingCells();
 	void simulate();
-	void writeTable();
+	void writeTable(string fileRoot);
 };

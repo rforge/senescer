@@ -3,6 +3,7 @@
 #include <fstream>
 #include <math.h>
 #include <time.h>
+#include <string.h>
 
 #define round(x) (x<0?ceil((x)-0.5):floor((x)+0.5))
 
@@ -110,7 +111,6 @@ void Senesce::inoculate(int Starting){
 	PD0 = 0.0;
 	num = starting;
 	num0 = starting;
-	dividing = starting;
 	trep = 0.0;
 	passno = 1;
 	reprow = 0;
@@ -225,6 +225,9 @@ void Senesce::simulate(){
 	//for(int i=0;i<10;i++){
 	//	std::cout << flask[i][0] << "\t" << flask[i][1] << "\t" << flask[i][2] << std::endl;
 	//}
+	// Count dividing cells
+	dividing=0;
+	for(int i=0;i<num;i++) if (flask[i][1]>0) dividing=dividing+1;
 	// Keep growing cells and passaging until population is exhausted
 	while(dividing>0){
 		int pstart=time(0);
@@ -241,12 +244,14 @@ void Senesce::simulate(){
 
 }
 
-void Senesce::writeTable(){
+void Senesce::writeTable(string fileRoot){
 	// Write results to file
 	std::ofstream outfile;
 	int resint = gsl_rng_uniform_int(r,999999999);
+	string fRoot=fileRoot+"_%09d.out";
+	const char* pfRoot=fRoot.c_str();
 	char filename[50];
-	sprintf (filename, "ResBig_%09d.txt", resint);
+	sprintf (filename, pfRoot, resint);
 	outfile.open(filename);
 	// Make a header
 	outfile << "Time" << "\t" << "PD" << "\t" << "Passage" << "\t" << "Cells" << "\t" << "Dead" << "\t" << "FracA" << "\t" << "FracB" << "\t" << "FracDead" << "\t" << "FracCommit" << "\t";
