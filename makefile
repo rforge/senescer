@@ -24,7 +24,7 @@ remove:
 	R CMD REMOVE smfsb
 
 clean:
-	rm -rf *~ smfsb_*.tar.gz pkg.Rcheck
+	rm -rf *~ senesceR_*.tar.gz pkg.Rcheck
 
 
 update:
