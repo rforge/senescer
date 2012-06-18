@@ -7,5 +7,5 @@ Author: Conor Lawless
 Maintainer: Conor Lawless <conor.lawless@ncl.ac.uk>
 Description: Simulates inoculating a small population of cells into a flask of limited capacity.  Cells divide stochastically until flask becomes confluent, whereupon a sample of cells is transferred to a fresh flask and division can continue.  Cells can divide according to the commitment theory of cellular senescence (Kirkwood and Holliday) or just have fixed (or distributed) division potentials.
 License: Artistic-2.0
-Depends: Rcpp (>= 0.9.10)
-LinkingTo: Rcpp
+Depends: RcppGSL, Rcpp (>= 0.9.10)
+LinkingTo: RcppGSL, Rcpp
