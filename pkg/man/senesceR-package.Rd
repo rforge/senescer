@@ -16,7 +16,9 @@ Version: \tab 1.0\cr
 Date: \tab 2012-06-03\cr
 License: \tab Artistic-2.0\cr
 }
+\usage{
 The main function is simsen, which simulates the replication and senescence of a population of cells.  This function writes a tab-delimited text file.  Auxiliary functions for reading in results, analysing and plotting are also included (e.g. histPD, readfiles, makeplot).
+}
 }
 \author{
 Conor Lawless
@@ -34,6 +36,7 @@ Maintainer: Conor Lawless <conor.lawless@ncl.ac.uk>
 ~~ \code{\link[<pkg>:<pkg>-package]{<pkg>}} ~~
 }
 \examples{
+\dontrun{
 # Carry out some simulations
 for (i in 1:100) simsen(Capacity=1000,Prat=0.25,Divrate=0.5,Deltarep=1.0,Pc=0.275,Meandiv=43)
 
@@ -50,4 +53,5 @@ for (f in unique(bigdat$filename)){
 histPD(bigdat)
 
 dev.off()
+}
 }
