@@ -1,5 +1,5 @@
 readfiles=function(folder="."){
-	resultfiles=list.files(path=folder,pattern="*.txt")
+	resultfiles=list.files(path=folder,pattern="*.out")
 	bigdat=data.frame()
 	for(result in resultfiles){
 		# Read file contents
