@@ -1,4 +1,3 @@
-
 <html> 
  
 <head> 
@@ -9,39 +8,40 @@
  
 <h1>senesceR: Simulating cell populations undergoing the transition from proliferation competence to replicative senescence</h1> 
 <hr></hr>
-<h3>Download R package</h3>
+<h3>Installing package</h3>
 
 <p>The R package is available at its R-forge page:
 </br></br>
 <a href="http://r-forge.r-project.org/projects/senescer">http://r-forge.r-project.org/projects/senescer</a>
 </br></br>
-Since large parts of this package are a set of R functions wrapping a set of C++ functions, there are issues with compiling this package from scratch, particularly under Windows.  Currently I recommend using senesceR under Linux only.
-</br></br>
-install.packages("senesceR", repos="http://R-Forge.R-project.org")
-</br></br>
-Source code for the package can also be checked out (and built trivially under Linux) from R-forge by <a href="http://r-forge.r-project.org/scm/?group_id=1419">SVN</a>.
+Since large parts of this package are a set of R functions wrapping a set of C++ functions, there are issues with compiling this package from scratch, particularly under Windows.  Currently I recommend using senesceR under Linux only.  To install and build from source:
+<ul>
+<li>Check out the package source code from the R-forge <a href="http://r-forge.r-project.org/scm/?group_id=1419">SVN</a> repository.</li>  
+<li>Ensure that GSL is installed on your system.  For example, using apt-get, run the following command in the shell: <code>sudo apt-get install libgsl0-dev</code></li>
+<li>senesceR depends on two other R packages: Rcpp and RcppGSL.  To make these available, in an R session run: <code>install.packages(c("Rcpp","RcppGSL"))</code>.
+<li>Finally, return to the shell, navigate into the senesceR directory checked out by SVN and simply run <code>make install</code>
+</ul>
+
 <hr></hr>
 
 <h3>Introduction</h3>
 
 <p> Cell passage experiments to observe cells undergoing the transition from proliferation competence to replicative senescence are difficult and time-consuming.  Population growth masks single cell level dynamics, which are probably the most informative for learning about biological processes.  SenesceR is a computer simulation of populations of cells in a container dividing stochastically until they become confluent.  In passage experiments, once confluence is reached a subsample of cells is taken and transferred to an empty flask to continue dividing.  SenesceR repeatedly simulates passaging until no more cells can divide and the population is completely senescent.</p>
 
-<h3>Applications</h3>
+<h3>Model summary</h3>
 
-<h3>Workflow</h3>
+<p>Individual daughter cells inherit division potentials (number of divisions achievable before replicative exhaustion) from their mothers, suitably reduced to simulate telomere shortening.  Starting division potentials can be generated according to the commitment theory of cellular senescence (Kirkwood and Holliday), sampled from a distribution or be fixed for all cells.  Model output includes population distribution of cell division potentials at all times (and population doubling numbers) from the start of the simulated experiment until all cells have become senescent.  This includes the number (and so fraction) of senescent cells, for which division potential = 0.  Simulation of one population to complete replicative exhaustion provides a single measure of population division potential: population doublings until senescence, commonly referred to as the Hayflick limit and commonly measured in cell culture assays.  Repeated stochastic simulations can provide information about Hayflick limit distribution in response to underlying model assumptions and parameter values. </p>
 
 <hr></hr> 
 <h2>R package</h2> 
  
 <h3>General overview</h3> 
 
-<p>This R package consists of a set of functions, split into types below:</p>
+<p>This R package consists of a set of functions for:</p>
 
 <h4>Reading and formatting data</h4>
 
-
 <h4>Simulating transition to replicative senescence</h4>
-
 
 </body> 
 </html> 
