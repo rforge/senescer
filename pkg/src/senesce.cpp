@@ -117,7 +117,7 @@ void Senesce::inoculate(int Starting){
 
 	// Empty flask
 	for(int i=0;i<capacity;i++){
-		for(int j=0;j<3;j++){
+		for(int j=0;j<nfeat;j++){
 			flask[i][j]=0;
 		}
 	}
@@ -147,10 +147,10 @@ void Senesce::growingCulture(){
 			break;
 		}
 		if(simtime>=trep){
-            		report();
+            report();
 			trep=trep+deltarep;
 		}
-		// Assume all cells have same probability of division
+		// Assume all dividing cells have same probability of division
 		float h0 = float(numdiv)*divrate;
 		float deltat=gsl_ran_exponential(r,1.0/h0);
 		simtime=simtime+deltat;
@@ -160,17 +160,17 @@ void Senesce::growingCulture(){
 		if (flask[ind[candidate]][2]==0){
 			float rm = gsl_rng_uniform(r);
 			float rd = gsl_rng_uniform(r);
-            		// Copy label to daughter cell
-            		flask[num][0]=flask[ind[candidate]][0];
-            		if(rm<=P){
+            // Copy label to daughter cell
+            flask[num][0]=flask[ind[candidate]][0];
+            if(rm<=P){
 				// Mother commits
-                    		flask[ind[candidate]][1]=meandiv;
-                		flask[ind[candidate]][2]=1;
+				flask[ind[candidate]][1]=meandiv;
+				flask[ind[candidate]][2]=1;
 			}
-           		if(rd<=P){
+           	if(rd<=P){
 				// Daughter commits
-                    		flask[num][1]=meandiv;
-                		flask[num][2]=1;
+                flask[num][1]=meandiv;
+                flask[num][2]=1;
 			}	
 		}else{
 			// Create new daughter cell with same label, division potential and commitment state
